@@ -1,0 +1,6 @@
+•	Acesso em simultâneo - Jorge e André
+o	Actualmente estamos a dar acessos únicos, contudo qualquer pessoa pode logar-se e ler em quantos dispositivos quiser ao mesmo tempo, 
+ou mesmo passar esse acesso para outras pessoas.
+o	O Objectivo é fazer algo semelhante à Netflix - Onde o cliente vê, conteúdo num dispositivo único, e não dar a possibilidade de 
+outra pessoa ler com a mesma conta.
+o	O André tratará de ver se é necessária uma experiência própria para esta funcionalidade ou poderá ser integrada na que já existe.
