@@ -1,0 +1,67 @@
+<div class="flex-container">
+    <div class="flex-item" ng-class="{' paper' : $index==4 }"  ng-repeat="term in terms | filter: {restrictCheckoutProcess:false}">
+        <div class="package">
+            <div class="header" ng-class="{ ' most-popular' : $index==1 ">{{ term.name }}<br>
+                <div class="ribbon" ng-if="$index==1"><span>&#9733; Assinatura mais popular &#9733;</span></div>
+                <span class="price">{{ term.firstRealPrice.substring(0, term.firstRealPrice.indexOf(",") )  }}<sup>{{ term.firstRealPrice.substr( term.firstRealPrice.indexOf(","), 3 )  }}</sup>€</span>
+            </div>
+            <ul class="list">
+                <span ng-repeat = "i in [0,1,2,3,4,5]" ng-if="term.termId=='TMRCISY5GNAM'" class="warning">
+                    <li ng-if="i==0 && term.billingPlanTable[0].isTrial == 'true'">1,00€ no 1ºmês, 7,90€ nos restantes</li>
+                    <li>
+                        {{ term.description.split('&lt;br&gt;')[i] }}
+                    </li>
+                    <li ng-if="i==5 && term.billingPlanTable[0].isTrial == 'false'"></li>
+                </span>
+                <li ng-repeat = "i in [0,1,2,3,4,5,6]" ng-if="term.termId!='TMRCISY5GNAM' && term.termId!='TMOVC3CMCJ68'" >
+                    {{ term.description.split('&lt;br&gt;')[i] }}
+                </li>
+                <li ng-repeat = "i in [0,1,2,3]" ng-if="term.termId=='TMOVC3CMCJ68'" >
+                    {{ term.description.split('&lt;br&gt;')[i] }}
+                </li>
+                <li class="gray">
+                        <span class="sign-button" ng-show="isUserValid()">
+                            <button class="sign-button" ng-class="{ ' button-popular' : $index==1 }" ng-click="startCheckout(term.termId)">Assinar</button>
+                        </span>
+                        <span class="sign-button" ng-show="!isUserValid()">
+                            <button ng-if="term.termId=='TMRCISY5GNAM'" class="main-cta-btn" attr="OFMBYVYKVB5L" style="cursor: pointer">Assinar</button>
+                            <button ng-if="term.termId=='TM85YNV61DM1'" class="main-cta-btn" attr="OFV6FA2P3IKE" style="cursor: pointer">Assinar</button>
+                            <button ng-if="term.termId=='TMCIXF597AXN'" class="main-cta-btn" attr="OFHLPTNS68M8" style="cursor: pointer">Assinar</button>
+                            <button ng-if="term.termId=='TMVYCN23X3FM'" class="main-cta-btn" attr="OF09O18KRO70" style="cursor: pointer">Assinar</button>
+                            <button ng-if="term.termId=='TMOVC3CMCJ68'" class="main-cta-btn" attr="OFJ610UQS7C6" style="cursor: pointer">Assinar</button>
+                        </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div custom-script>
+ 
+    
+    
+    const repeatContentCheck = setInterval(function(){
+      
+      if(document.querySelectorAll(".main-cta-btn")){
+            var allCtaBtns = document.querySelectorAll(".main-cta-btn");
+            for( var j = 0; j < allCtaBtns.length; j++){
+                let currOfferId =  allCtaBtns[j].getAttribute("attr");
+                allCtaBtns[j].addEventListener("click", function() {
+                    console.log(currOfferId);
+                    window.parent.postMessage(["click", currOfferId ], "*");
+                  });
+            }
+            console.log('+1 run');
+            clearInterval(repeatContentCheck);
+      }
+        
+        
+      
+    }, 200);
+   
+        
+    
+
+</div>
