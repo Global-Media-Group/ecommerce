@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+ #checkout-container {
+     background-color: transparent;
+}
+ .flex-container {
+    display: flex;
+    background-color: transparent;
+    padding: 1em;
+    font-family: 'Merriweather Sans', sans-serif;
+    flex-wrap: wrap;
+    width: 1300px;
+    margin: 0 auto;
+    top: 10px;
+    position: relative;
+}
+ .flex-item {
+     flex: 1;
+     width: 25%;
+}
+ .flex-item:not(:last-child) {
+     margin-right: 1em;
+}
+ .package {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    transform: scale(1);
+    transition: 0.25s;
+    display: flex;
+    flex-flow: column nowrap;
+}
+ .package:hover {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.005);
+}
+.package .header {
+    background: #58bad0;
+    color: #fff;
+    font-size: 1.5em;
+    height: 160px;
+    transition: 0.5s;
+    text-align: center;
+    padding: 35px 0;
+}
+ .package:hover > .header {
+    background: #21a2bf;
+}
+ .package .most-popular {
+    background: #ed785c;
+    transition: 0.5s;
+}
+ .package:hover > .most-popular {
+    background: #e7502c;
+    transition: 1s;
+}
+ .package span.price {
+     font-size: 2.5em;
+     font-weight: bold;
+     line-height: 1.23;
+     letter-spacing: -0.06em;
+}
+ .package span.price sup {
+     font-size: 0.5em;
+     font-weight: normal;
+}
+
+ .package .highlight {
+     background-color: #29b6f6;
+}
+ .list li {
+     background-color: #fff;
+     border-bottom: 1px solid #eee;
+     text-align: center;
+     height: 50px;
+     font-size: 0.9em;
+     font-weight: normal;
+     display: flex;
+     justify-content: center;
+    /* align horizontal */
+     align-items: center;
+    /* align vertical */
+     flex-direction: column;
+}
+
+.flex-item.paper .package {
+    flex-flow: row nowrap;
+}
+.flex-item.paper .header {
+    width: 30%;
+}
+.flex-item.paper ul.list {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-between;
+    width: 70%;
+    height: 160px;
+}	
+.flex-item.paper ul.list li {
+    width: 100%;
+    height: 30px;
+}
+ .flex-item.paper ul.list li:last-child {
+     height: 40px;
+}
+ .paper {
+     margin: 10px 1% 10px 0;
+     flex: 1 1 100%;
+}
+ button {
+     background-color: #29b6f6;
+     border: none;
+     border-radius: .15em;
+     color: #fff;
+     cursor: pointer;
+     padding: .75em 1.5em;
+     font-size: 1em;
+}
+.ribbon {
+    position: absolute;
+    top: -25px;
+    z-index: 1;
+    width: 100%;
+    height: 25px;
+    text-align: center;
+}
+
+.ribbon span {
+    font-size: 0.45em;
+    font-weight: bold;
+    color: #21a2bf;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    width: 100%;
+    display: block;
+    background: #ffffff;
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    top: 19px;
+    text-shadow: 1px 1px 4px #999;
+    padding: 5px 0px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+ 
+ .package:hover > .ribbon {
+     display: block;
+     transition: 1s;
+}
+
+.partner {
+    background-image: url(https://static.globalnoticias.pt/dn/common/images/paywall/rakutenTV.png) !important;
+    background-size: 50% !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% 95% !important;
+    background-blend-mode: luminosity;
+    padding-top: 20px !important;
+}
+
+.warning {
+    font-size: 1em !important;
+    border-bottom: 1px solid #fffa!important;
+    white-space: nowrap;
+}
+
+.legal p {
+    font-size: 0.6em;
+    font-weight: normal;
+    line-height: 1.5em;
+}
+
+@media screen and (max-width: 1300px) {
+    .flex-container {
+         width: 100%;
+    }
+}
+ @media only screen and (max-width: 1024px) {
+    .flex-container {
+         width: 98%;
+    }
+    .flex-item {
+         width: 50%;
+         min-width: 310px;
+    }
+    .flex-item:not(:last-child) {
+         margin-top: 10px;
+    }
+     .package .header {
+         font-size: 1.2em;
+    }
+     .paper {
+         margin: 10px 2% 10px 0;
+    }
+    .flex-item.paper ul.list li.header {
+        width: 35%;
+    }
+}
+ @media only screen and (max-width: 820px) {
+     .flex-container {
+         width: 90%;
+    }
+     .flex-item.paper ul.list {
+         max-width: 98.5%;
+    }
+     .flex-item.paper ul.list li.header {
+         width: 35%;
+    }
+     .flex-item.paper ul.lis li {
+         width: 65%;
+    }
+    button {
+         padding: .75em;
+    }
+}
+ @media only screen and (max-width: 480px) {
+     .flex-container {
+         width: 100%;
+         flex-wrap: wrap;
+    }
+     .flex-item {
+         flex: 0 0 100%;
+         margin-bottom: 1em;
+         width: 100%;
+    }
+     .flex-item ul.list {
+         display: flex;
+         flex-flow: column wrap;
+         align-content: space-between;
+         width: 70%;
+    }
+    
+    .package {
+        flex-flow: row nowrap;
+    }
+    
+     .package .header {
+         width: 30%;
+         height: auto;
+         padding: 15px 0;
+    }
+     .package span.price {
+         font-size: 1.4em;
+    }
+     button {
+         padding: .75em 1.5em;
+    }
+     
+     .paper .package span.price {
+         font-size: 1.8em;
+    }
+    
+    .list li {
+        width: 100%;
+        height: 30px;
+        font-size: 0.8em;
+        line-height: 1;
+    }
+    
+    .flex-item.paper .header {
+        min-width: 30%;
+        font-size: 1em;
+        line-height: 1.3;
+    }
+     .flex-item.paper ul.list li {
+         min-width: 205px;
+         height: 30px;
+    }
+    .ribbon {
+        right: 0;
+        top: -15px;
+    }
+    .ribbon span {
+        font-size: 0.5em;
+        right: 0;
+        padding: 0;
+    }
+    .warning {
+        width: 100%;
+        float: left;
+    }
+}
